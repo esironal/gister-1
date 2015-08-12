@@ -1,0 +1,33 @@
+{
+  "name": "gister",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Gister",
+  "author": "Giulliano Bueno <giubueno@gmail.com>",
+  "devDependencies": {
+    "del": "^1.2.0",
+    "gulp": "^3.8.11",
+    "gulp-concat": "2.5.2",
+    "gulp-if": "1.2.5",
+    "gulp-imagemin": "2.2.1",
+    "gulp-jscs": "1.4.0",
+    "gulp-jshint": "1.9.4",
+    "gulp-load-plugins": "0.8.1",
+    "gulp-minify-css": "1.0.0",
+    "gulp-minify-html": "1.0.1",
+    "gulp-rev": "^5.1.0",
+    "gulp-rev-replace": "^0.4.2",
+    "gulp-sass": "1.3.3",
+    "gulp-uglify": "1.1.0",
+    "gulp-useref": "^1.3.0",
+    "gulp-webserver": "^0.9.1",
+    "jshint-stylish": "^2.0.1",
+    "object-assign": "^3.0.0",
+    "vinyl-paths": "^1.0.0"
+  },
+  "dependencies": {},
+  "scripts": {
+    "prestart": "npm install",
+    "pretest": "npm install"
+  }
+}

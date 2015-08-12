@@ -1,0 +1,24 @@
+{
+  "name": "guster",
+  "version": "1.0.0",
+  "authors": [
+    "Giulliano Bueno <giubueno@gmail.com>"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "angular-loading-bar": "~0.8.0",
+    "ui-router": "~0.2.15",
+    "font-awesome": "~4.4.0"
+  },
+  "devDependencies": {
+    "angular": "~1.4.1",
+    "jquery": "~2.1.4"
+  }
+}
