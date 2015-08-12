@@ -1,0 +1,34 @@
+{
+    "tmpPath": ".tmp",
+    "srcAppPath": "app",
+    "srcImagesPath": "app/images",
+    "srcScriptsPath": "app/scripts",
+    "srcStylesPath": "app/styles",
+    "distPath": "dist",
+    "distImagesPath": "dist/images",
+    "jshintReporter": "jshint-stylish",
+    "imageMinConfig": {
+        "optimizationLevel": 3,
+        "progressive": true,
+        "interlaced": true
+    },
+    "loadPluginsConfig": {
+        "lazy": true
+    },
+    "uglifyConfig": {
+        "mangle": false
+    },
+    "minifyCssConfig": {
+        "rebase": false
+    },
+    "minifyHtmlConfig": {
+    },
+    "sassConfig": {
+    },
+    "sass": [
+        "bower_components/font-awesome/scss/font-awesome.scss"
+    ],
+    "serverPort": 8000,
+    "serverHost": "0.0.0.0",
+    "serverOpen": false
+}
