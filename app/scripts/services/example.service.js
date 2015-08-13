@@ -18,14 +18,13 @@
         };
 
         this.getUsersInfo = function (username) {
-          $http.get('https://api.github.com/users/' + username).
+            $http.get('https://api.github.com/users/' + username).
             then(function(response) {
-              // this callback will be called asynchronously
-              // when the response is available
-              $rootScope.$broadcast(EVENT.usersInfoReceived, response);
+                log.debug(response.data);
+                $rootScope.$broadcast(EVENT.usersInfoReceived, response);
             }, function(response) {
-              // called asynchronously if an error occurs
-              // or server returns response with an error status.
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
             });
         };
     }
