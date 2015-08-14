@@ -2,7 +2,7 @@
 A simple repository dashboard.
 
 ## Running the project
-npm install
-bower install
-gulp server
+```npm install```<br>
+```bower install```<br>
+```gulp server```
 
