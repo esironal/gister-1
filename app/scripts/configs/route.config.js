@@ -19,8 +19,8 @@
             .state('example', {
                 parent: 'default',
                 url: '/example',
-                templateUrl: 'views/example.html',
-                controller: 'ExampleController as vm',
+                templateUrl: '../../views/usersInfo.html',
+                controller: 'UserController as vm',
                 controllerAs: 'vm'
             });
     }

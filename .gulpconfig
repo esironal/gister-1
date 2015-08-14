@@ -1,6 +1,7 @@
 {
     "tmpPath": ".tmp",
     "srcAppPath": "app",
+    "testAppPath": "test",
     "srcImagesPath": "app/images",
     "srcScriptsPath": "app/scripts",
     "srcStylesPath": "app/styles",

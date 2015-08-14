@@ -15,10 +15,12 @@
     "bootstrap": "~3.3.5",
     "angular-loading-bar": "~0.8.0",
     "ui-router": "~0.2.15",
-    "font-awesome": "~4.4.0"
+    "font-awesome": "~4.4.0",
+    "angular-mocks": "~1.4.4"
   },
   "devDependencies": {
     "angular": "~1.4.1",
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "karma": "~0.4.6"
   }
 }

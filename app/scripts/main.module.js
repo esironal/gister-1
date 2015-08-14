@@ -7,18 +7,12 @@
         'angular-loading-bar'
     ]).run(run);
 
-    run.$inject = ['$log', '$rootScope', 'ExampleService', 'EXAMPLE_EVENTS'];
+    run.$inject = ['$log', '$rootScope', 'UserService', 'USER_EVENTS'];
 
-    function run(log, $rootScope, exampleService, EVENT) {
-        log.debug('carregou o modulo main');
-
-        $rootScope.$on(EVENT.exampleOne, exampleService.exampleOne);
-        $rootScope.$on(EVENT.exampleTwo, exampleService.exampleTwo);
-
-        $rootScope.exampleLink = function() {
-            $rootScope.$broadcast(EVENT.exampleTwo);
+    function run(log, $rootScope, userService, EVENT) {
+        $rootScope.loadUserInfo = function() {
+            $rootScope.$broadcast(EVENT.loadUserInfo);
         }
-
     }
 
 })();

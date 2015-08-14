@@ -4,7 +4,8 @@ var gulp = require('gulp'),
     del = require('del'),
     vinylPaths = require('vinyl-paths'),
     assign = require('object-assign'),
-    fs = require("fs");
+    fs = require("fs"),
+    karma = require("gulp-karma");
 
 var config = JSON.parse(fs.readFileSync('.gulpconfig', "utf8"));
 var plugins = require('gulp-load-plugins')(config.loadPluginsConfig);
@@ -83,6 +84,31 @@ gulp.task('compile', ['clean', 'sass', 'quality'], function () {
             plugins.if('*.html', plugins.minifyHtml(config.minifyHtmlConfig))
         )
         .pipe(gulp.dest(config.distPath));
+});
+
+gulp.task('unit', function() {
+    // Be sure to return the stream
+    return gulp.src([
+        config.srcAppPath + '/scripts/**/*.js',
+        config.testAppPath + '/unit/**/*.js'])
+        .pipe(karma({
+            configFile: 'karma.conf.js',
+            action: 'run'
+        }))
+        .on('error', function(err) {
+            // Make sure failed tests cause gulp to exit non-zero
+            throw err;
+        });
+});
+
+gulp.task('e2e', function(done) {
+    var args = ['--baseUrl', 'http://127.0.0.1:8888'];
+    gulp.src(["./tests/e2e/*.js"])
+        .pipe(protractor({
+            configFile: "tests/protractor.conf.js",
+            args: args
+        }))
+        .on('error', function(e) { throw e; });
 });
 
 gulp.task('build', ['clean', 'compile']);
