@@ -1,2 +1,8 @@
 # gister
-A simple that find gist about your search.
+A simple repository dashboard.
+
+## Running the project
+npm install
+bower install
+gulp server
+
