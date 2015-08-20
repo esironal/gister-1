@@ -1,6 +1,6 @@
 # gister
 
-[travis]: https://travis-ci.org/giubueno/gister.svg  "Travis CI"
+![Travis](https://travis-ci.org/giubueno/gister.svg)
 
 A simple repository dashboard.
 
