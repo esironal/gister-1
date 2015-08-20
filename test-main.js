@@ -19,19 +19,6 @@ require.config({
   // dynamically load all test files
   deps: allTestFiles,
 
-  paths: {
-    "test":          "test",
-    "bower":         "bower_components",
-    "angular-mocks": "bower/angular-mocks/angular-mocks"
-  },
-
-  shim: {
-    'angular-mocks': {
-      deps: ['ng-resource'],
-      exports: 'angular.mock'
-    }
-  },
-
   // we have to kickoff jasmine, as it is asynchronous
   callback: window.__karma__.start,
 });
