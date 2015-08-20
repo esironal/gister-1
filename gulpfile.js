@@ -5,7 +5,8 @@ var gulp = require('gulp'),
     vinylPaths = require('vinyl-paths'),
     assign = require('object-assign'),
     fs = require("fs"),
-    karma = require("gulp-karma");
+    karma = require("gulp-karma"),
+    Server = require('karma').Server;
 
 var config = JSON.parse(fs.readFileSync('.gulpconfig', "utf8"));
 var plugins = require('gulp-load-plugins')(config.loadPluginsConfig);
@@ -86,13 +87,13 @@ gulp.task('compile', ['clean', 'sass', 'quality'], function () {
         .pipe(gulp.dest(config.distPath));
 });
 
-gulp.task('unit', function() {
-    // Be sure to return the stream
+gulp.task('test', function() {
     return gulp.src([
         config.srcAppPath + '/scripts/**/*.js',
         config.testAppPath + '/unit/**/*.js'])
         .pipe(karma({
-            configFile: 'karma.conf.js',
+            configFile: pathToKarmaConf + '/karma.conf.js',
+            singleRun: isTravis,
             action: 'run'
         }))
         .on('error', function(err) {
@@ -101,14 +102,18 @@ gulp.task('unit', function() {
         });
 });
 
-gulp.task('e2e', function(done) {
-    var args = ['--baseUrl', 'http://127.0.0.1:8888'];
-    gulp.src(["./tests/e2e/*.js"])
-        .pipe(protractor({
-            configFile: "tests/protractor.conf.js",
-            args: args
-        }))
-        .on('error', function(e) { throw e; });
+var gulp = require('gulp');
+var pathToKarmaConf = __dirname.replace('/gulp', '');
+var isTravis = process.env.TRAVIS || false;
+
+/**
+ * Run test once and exit
+ */
+gulp.task('test', function (done) {
+    new Server({
+        configFile: pathToKarmaConf + '/karma.conf.js',
+        singleRun: isTravis
+    }, done).start();
 });
 
 gulp.task('build', ['clean', 'compile']);

@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - "0.12.7"
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - npm install -g bower
+  - npm install -g gulp
+  - npm install phantomjs
+  - npm install -g karma
+  - bower install
+  - gulp build
+  - gulp style
+script: gulp
