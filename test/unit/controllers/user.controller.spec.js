@@ -1,17 +1,18 @@
 describe("Getting users repository data", function() {
-    var $rootScope;
+    var $rootScope = {};
     var $controller;
-    beforeEach(module("main"));
-    beforeEach(inject(function($injector) {
 
-        $rootScope = $injector.get('$rootScope');
-        $controller = $injector.get('$controller');
-        $scope = $rootScope.$new();
-
-    }));
+    beforeEach(function(){
+        inject(function($injector) {
+            $rootScope = $injector.get('$rootScope');
+            $controller = $injector.get('$controller');
+            $scope = $rootScope.$new();
+        });
+    });
 
     it('should return the profile', inject(function($controller, $httpBackend){
         var scope = {};
+
         $httpBackend
             .when('GET', 'https://api.github.com/users/giubueno/repos')
             .respond({
@@ -46,9 +47,10 @@ describe("Getting users repository data", function() {
                 "created_at": "2011-03-28T01:20:14Z",
                 "updated_at": "2015-08-12T12:37:01Z"
             });
-        var userController = $controller('UserController', {
-            $scope: scope
-        });
+
+        angular.module("main", []).controller("UserController",[]);
+
+        var userController = $controller('UserController', { $scope: scope });
 
         userController.loadUserInfo();
         $httpBackend.flush();
